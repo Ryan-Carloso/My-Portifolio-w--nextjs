@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from 'react';
-import { Button } from "@/components/ui/button";
 import Footer from '@/mycomponentes/footer';
 import Header from '@/mycomponentes/header';
 import Contact from '@/mycomponentes/contact';
@@ -43,7 +42,6 @@ export default function Component() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 relative overflow-hidden">
-      <SnakeAnimation /> {/* Use the SnakeAnimation component */}
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-lg z-50">
@@ -51,13 +49,16 @@ export default function Component() {
           <ul className="flex justify-center space-x-6">
             {['Home', 'About', 'Skills', 'Projects', 'Education', 'Contact'].map((item) => (
               <li key={item}>
-                <Button
-                  variant="ghost"
-                  className={`text-sm ${activeSection === item.toLowerCase() ? 'text-blue-400' : 'text-gray-400'}`}
+                <button
+                  className={`text-sm px-3 py-2 rounded-md transition-colors duration-200 ease-in-out ${
+                    activeSection === item.toLowerCase()
+                      ? 'text-blue-400 bg-gray-800 bg-opacity-50'
+                      : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800 hover:bg-opacity-30'
+                  }`}
                   onClick={() => scrollToSection(item.toLowerCase())}
                 >
                   {item}
-                </Button>
+                </button>
               </li>
             ))}
           </ul>
